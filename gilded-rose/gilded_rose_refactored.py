@@ -10,9 +10,9 @@ class GildedRose(object):
     def update_quality(self):
 
         for item in self.items:
-            provider = GildedRoseFactoryHandler(item).create_handler()
-            item.quality = provider.update_quality()
-            item.sell_in = provider.update_sell_in()
+            gilded_rose_handler = GildedRoseFactoryHandler(item).create_handler()
+            item.quality = gilded_rose_handler.update_quality()
+            item.sell_in = gilded_rose_handler.update_sell_in()
 
 
 class Item:
