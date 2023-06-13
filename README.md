@@ -16,7 +16,7 @@ For this exercise, you should identify which SOLID principles are violated. For 
 
 When you have some kind of test to lean on, refactor the code and make it testable. Take care when refactoring not to alter the functionality, or change interfaces which other client code may rely on. (Imagine there is client code in another repository that you can't see right now). Add more tests to cover the functionality of the particular class you've been asked to get under test.
 
-#### [Tire Pressure Monitoring System](https://github.com/aleriboni/code-kata-challenge/blob/e826c8590b432c133ab27250c4ef25db85f42f1d/racing-car-katas/tire_pressure_monitoring)
+#### [Tire Pressure Monitoring System](https://github.com/aleriboni/code-kata-challenge/blob/e826c8590b432c133ab27250c4ef25db85f42f1d/racing-car-katas/tire-pressure-monitoring)
 
 ##### Requirements
 
