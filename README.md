@@ -57,3 +57,20 @@ The following SOLID principles are violated in the legacy code:
 
 To make the code more robust, we cover the case where a driver not present at the race is passed to the **points** method. It gets 0 points.
 Also, if the _results_ list is greater than the _points_ list, extra drivers get 0 points.
+
+
+#### [Text Converter](https://github.com/aleriboni/code-kata-challenge/blob/e826c8590b432c133ab27250c4ef25db85f42f1d/racing-car-katas/text-converter)
+
+##### Requirements
+
+Write the unit tests for the UnicodeFileToHtmlTextConverter class. The UnicodeFileToHtmlTextConverter class is designed to reformat a plain text file for display in a browser. There is an additional class "HtmlPagesConverter" which is slightly harder to get under test. It not only converts text in a file to html, it also supports pagination. It's meant as a follow up exercise.
+
+##### Solution
+
+The following SOLID principles are violated in the legacy code:
+* Single responsibility principle (SRP): the **convert_to_html** method is responsible for reading the file and escaping each line (and string concatenation). The responsibility for reading the file has been delegated to an ad hoc **HtmlReader** class. In case of FileNotFoundError, for simplicity, the **read_file** methods returns an empty list. This approach makes the converter robust but is not suitable for a real use case because we lose error visibility
+* **Opening and closing principle (OCP)**: the **Reader** should be passed as a parameter of **UnicodeFileToHtmlTextConverter**. In the general requirements it is specified not to change the interfaces. In the absence of this constraint the HtmlReader could have been passed as a field of **UnicodeFileToHtmlTextConverter** to be open for extension (and close for modification).
+
+Other legacy code issues:
+* File handling: opening the file is done via a context manager (**with open(...)**) so that it closes automatically in case of exceptions
+
