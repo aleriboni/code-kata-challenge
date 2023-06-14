@@ -4,7 +4,7 @@ from text_converter_refactored import UnicodeFileToHtmlTextConverter
 
 class UnicodeFileToHtmlTextConverterTest(unittest.TestCase):
     
-    def test_foo(self):
+    def test_convert_to_html(self):
         converter_1 = UnicodeFileToHtmlTextConverter("foo")
         self.assertEqual("foo", converter_1.full_filename_with_path)
         self.assertEqual('', converter_1.convert_to_html())
